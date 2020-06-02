@@ -9,5 +9,18 @@ Características da aplicação:
 
 A aplicação tem um design simples e responsivo, veja as imagens abaixo:
 
-![alt text](resources/images/homepage.png)
+<p align="center">
+  <img width="600" src="resources/images/homepage.png">
+</p>
 
+<p align="center">
+  <img width="600" src="resources/images/questao.png">
+</p>
+
+<p align="center">
+  <img width="600" src="resources/images/correcao.png">
+</p>
+
+<p align="center">
+  <img width="600" src="resources/images/resultados.png">
+</p>
