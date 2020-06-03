@@ -117,6 +117,7 @@ const correction = function () {
   let incorrectAnswers = 0;
   let blankAnswers = 0;
   let grade = 0;
+  var status;
   const body = document.body;
 
   for (let i = 0; i < questions.length; i++) {
@@ -129,8 +130,9 @@ const correction = function () {
   }
 
   grade = Math.round(100 * correctAnswers / numQuestionsTest);
+  status = (correctAnswers >= numQuestionsSuccess) ? 'Aprovado' : 'Reprovado';
   blankAnswers = numQuestionsTest - correctAnswers - incorrectAnswers;
-  const result = createResult(correctAnswers, incorrectAnswers, blankAnswers, grade);
+  const result = createResult(correctAnswers, incorrectAnswers, blankAnswers, grade, status);
   body.appendChild(result);
 
   for (let i = 0; i < questions.length; i++) {

@@ -191,7 +191,7 @@ const addSelectionForAnswers = function (list) {
 };
 
 // Cria o cartão com o resumo da prova do usuário
-const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, grade) {
+const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, grade, status) {
   // Criando os elementos
   const divContainer = document.createElement('div');
   const divCard = document.createElement('div');
@@ -206,6 +206,8 @@ const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, g
   const textBlank = document.createTextNode('Questões em branco: ' + blankAnswers);
   const pGrade = document.createElement('p');
   const textGrade = document.createTextNode('Porcentagem de acerto: ' + grade + '%');
+  const pStatus = document.createElement('p');
+  const textStatus = document.createTextNode(status);
   const buttonHome = document.createElement('div');
   const textButton = document.createTextNode('Home');
   // Estilizando os elementos
@@ -213,6 +215,7 @@ const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, g
   divCard.classList.add('card', 'border-rounded', 'text-center', 'bg-primary');
   hTitle.classList.add('card-subtitle', 'mt-1', 'mb-2');
   divContent.classList.add('card-content');
+  pStatus.classList.add('text-center', 'mtb-3', (status === 'Aprovado') ? 'bg-success' : 'bg-failure');
   buttonHome.classList.add('btn', 'btn-primary', 'border-rounded', 'mt-2');
   // Adicionando atributos
   buttonHome.setAttribute('onclick', 'home()');
@@ -222,6 +225,7 @@ const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, g
   pIncorrect.appendChild(textIncorrect);
   pBlank.appendChild(textBlank);
   pGrade.appendChild(textGrade);
+  pStatus.appendChild(textStatus);
   buttonHome.appendChild(textButton);
   divContainer.appendChild(divCard);
   divCard.appendChild(hTitle);
@@ -230,6 +234,7 @@ const createResult = function (correctAnswers, incorrectAnswers, blankAnswers, g
   divContent.appendChild(pIncorrect);
   divContent.appendChild(pBlank);
   divContent.appendChild(pGrade);
+  divCard.appendChild(pStatus);
   divCard.appendChild(buttonHome);
 
   return divContainer;
